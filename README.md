@@ -1,4 +1,6 @@
-# Evaluating-genetic-drift-in-time-series-evolutionary-analysis
+***************************************************************
+Evaluating-genetic-drift-in-time-series-evolutionary-analysis
+***************************************************************
 
 Forward-backward/predict-update HMM algorithm for drift model parameter estimation (N or sigma) through likelihood maximization and posterior calculation. Adapted for time-series analysis from Andrej Fischer, Ignacio Vazquez-Garcia, Christopher J.R. Illingworth and Ville Mustonen. High-definition reconstruction of subclonal composition in cancer. Cell Reports (2014), http://dx.doi.org/10.1016/j.celrep.2014.04.055
 
@@ -13,10 +15,10 @@ Required Arguments:
 
   --mode        Emission model:
                 1 Binomial
-		            2 Beta-Binomial
+		2 Beta-Binomial
 
   --GWF         0 Gaussian propagation with absorbing boundaries
-		            1 Wright-Fisher propagation by matrix exponentiation (2N<=1000) or pre-computed matrix powers (2N>1000)
+		1 Wright-Fisher propagation by matrix exponentiation (2N<=1000) or pre-computed matrix powers (2N>1000)
 		
   Optional Arguments:
   --pre                 The prefix to put before all output files
