@@ -1,5 +1,5 @@
 Evaluating-genetic-drift-in-time-series-evolutionary-analysis
-***************************************************************
+=============================================================
 
 InferenceCode folder
 -------------------
