@@ -60,7 +60,7 @@ Additional folders:
 
 Examples-examples of Wright-Fisher trajectories with duration T=300, sampling period 10, population size N=1000,and depth 100
 
-MatPow- pre-computed transition matrices
+MatPow- pre-computed transition matrices (frequency grid 400, maximum population size 2N=10000)
 
 
 Notes:
