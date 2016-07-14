@@ -56,6 +56,7 @@ Example:
 ./DMS --data [file] --mode 1 --GWF 1 -pre [str] --sigmai 0.01 --sigmaf 0.05 --sigmagrid 5 --grid 400 
 
 Additional folders:
+-------------------
 
 Examples-examples of Wright-Fisher trajectories with duration T=300, sampling period 10, population size N=1000
 
