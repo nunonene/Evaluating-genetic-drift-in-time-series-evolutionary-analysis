@@ -5,24 +5,25 @@ Forward-backward/predict-update HMM algorithm for drift model parameter estimati
 
 Additional features for time-resolved data: neutral exact Wright-Fisher (drift parameter N) and Gaussian (drift paramter sigma) propagation with absorbing boundaries drift model on a frequency grid with matrix exponentiation routine.
 
-Executable: DMS 
+Executable: DMS
+-----------
 
-Required external C libraries: 
+Required external C libraries:
+------------------------------
 
 --gsl (see makefile) 
 
 Required Arguments:
+--------------------
 
   --data        The input observed datafile with four columns (extra columns of "read depth" correspond to more replicates which are                 analysed independently from each other), locus time reads depth
 
-  --mode        1 Binomial
-  		2 Beta-Binomial
+  --mode        1 Binomial 2 Beta-Binomial
 
-  --GWF         0 Gaussian propagation with absorbing boundaries
-  
-  		1 Wright-Fisher propagation by matrix exponentiation (2N<=1000) or pre-computed matrix powers (2N>1000)
+  --GWF         0 Gaussian propagation with absorbing boundaries 1 Wright-Fisher propagation by matrix exponentiation (2N<=1000) or pre-computed matrix powers (2N>1000)
   		
 Optional Arguments:
+-------------------
 
   --pre                 The prefix to put before all output files
   
@@ -39,6 +40,7 @@ Optional Arguments:
   --shape     [double]  To fix the shape parameter in mode 2
 
 Output:
+-------
 
   -- Parameter estimate, corresponding likelihood and goodness-of-fit calculated through the posterior distribution at each locus and sampling instant
   
@@ -49,6 +51,7 @@ Output:
 
 
 Example:
+--------
 
 ./DMS --data [file] --mode 1 --GWF 1 -pre [str] --sigmai 0.01 --sigmaf 0.05 --sigmagrid 5 --grid 400 
 
@@ -60,6 +63,7 @@ MatPow- pre-computed transition matrices
 
 
 Notes:
+------
 
 --data files should have line ending in Unix/Linux format
 
