@@ -16,28 +16,28 @@ Required external C libraries:
 Required Arguments:
 --------------------
 
-  --data        The input observed datafile with four columns (extra columns of "read depth" correspond to more replicates which are                 analysed independently from each other), locus time reads depth
+  --data    [file]   The input observed datafile with four columns (extra columns of "read depth" correspond to more replicates which                     are analysed independently from each other), locus time reads depth
 
-  --mode        1 Binomial 2 Beta-Binomial
+  --mode    [int]    1 Binomial 2 Beta-Binomial
 
-  --GWF         0 Gaussian propagation with absorbing boundaries 1 Wright-Fisher propagation by matrix exponentiation (2N<=1000) or pre-computed matrix powers (2N>1000)
+  --GWF     [int]    0 Gaussian propagation with absorbing boundaries 1 Wright-Fisher propagation by matrix exponentiation (2N<=1000)                     or pre-computed matrix powers (2N>1000)
   		
 Optional Arguments:
 -------------------
 
-  --pre                 The prefix to put before all output files
+  --pre        [str]     The prefix to put before all output files
   
-  --grid      [int]     The grid size for the distributions (partitions [0,1] into [grid] bins)
+  --grid       [int]     The grid size for the distributions (partitions [0,1] into [grid] bins)
   
-  --dist                Prints all the posterior distributions as well
+  --dist                 Prints all the posterior distributions as well
   
-  --sigmai    [double]  Initial drift amplitude (default minimum value sigmai=0.01)
+  --sigmai     [double]  Initial drift amplitude (default minimum value sigmai=0.01)
   
-  --sigmaf    [double]  Final drift amplitude (default minimum value sigmaf=0.05)
+  --sigmaf     [double]  Final drift amplitude (default minimum value sigmaf=0.05)
   
-  --sigmagrid [int]     number of initial points for drift parameter optimization
+  --sigmagrid  [int]     Number of initial points for drift parameter optimization
   
-  --shape     [double]  To fix the shape parameter in mode 2
+  --shape      [double]  To fix the shape parameter in mode 2
 
 Output:
 -------
