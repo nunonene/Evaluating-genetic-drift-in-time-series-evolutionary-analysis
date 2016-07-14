@@ -15,13 +15,12 @@ Required Arguments:
 
   --data        The input observed datafile with four columns (extra columns of "read depth" correspond to more replicates which are                 analysed independently from each other), locus time reads depth
 
-  --mode        Emission model:
-  
-                1 Binomial
+  --mode        1 Binomial
                 
 		2 Beta-Binomial
 
   --GWF         0 Gaussian propagation with absorbing boundaries
+  
 		1 Wright-Fisher propagation by matrix exponentiation (2N<=1000) or pre-computed matrix powers (2N>1000)
 		
 Optional Arguments:
