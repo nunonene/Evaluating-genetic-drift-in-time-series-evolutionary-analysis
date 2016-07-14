@@ -7,5 +7,5 @@ Forward-backward/predict-update HMM algorithm for drift model parameter estimati
 
 RunMatPower folder
 ------------------
-Routines for generating matrix powers either using Open_BLAS or MKL
+Routines for generating matrix powers either using Open_BLAS or MKL (see respective makefiles).
 
