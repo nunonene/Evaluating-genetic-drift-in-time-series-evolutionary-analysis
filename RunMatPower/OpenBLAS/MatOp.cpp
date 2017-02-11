@@ -93,7 +93,7 @@ void MatOp::Matcopy(int PopSize,double* A,double *B)
         A[i]=B[i];
         
     }
-}
+};
 
 void MatOp::SaveToFile(FILE *stream, double *m,int PopSize,int GridSize)
 {
@@ -204,6 +204,8 @@ void MatOp::SaveToFile(FILE *stream, double *m,int PopSize,int GridSize)
                                 }
                             }
                         }
+			
+		     }
 
                 
                     if(!flag) r=Pn/Pd;
@@ -229,7 +231,8 @@ void MatOp::SaveToFile(FILE *stream, double *m,int PopSize,int GridSize)
             
             a.clear();
             b.clear();
-		}
+		
+	}
         
         
         
@@ -246,6 +249,7 @@ void MatOp::SaveToFile(FILE *stream, double *m,int PopSize,int GridSize)
     
        
     gsl_matrix_fwrite (stream, propagator); // save gsl_matrix
+ gsl_matrix_free(propagator);
     
 };
 
