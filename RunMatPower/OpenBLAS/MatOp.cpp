@@ -7,7 +7,6 @@
 //
 
 #include "MatOp.h"
-#include "shared.h"
 
 void MatOp::PowMatOpenBLAS(int expo, int PopSize, double  *I, double *m){ // with BLAS matrix multiplication routines
     
@@ -23,11 +22,11 @@ void MatOp::PowMatOpenBLAS(int expo, int PopSize, double  *I, double *m){ // wit
     
     
     
-    dest = (double*) mkl_malloc((PopSize+1)*(PopSize+1)*sizeof(double),64);
+    dest = (double*) malloc((PopSize+1)*(PopSize+1)*sizeof(double));
     
-    src = (double*) mkl_malloc((PopSize+1)*(PopSize+1)*sizeof(double),64);
+    src = (double*) malloc((PopSize+1)*(PopSize+1)*sizeof(double));
     
-    tempMat = (double*) mkl_malloc((PopSize+1)*(PopSize+1)*sizeof(double),64);
+    tempMat = (double*) malloc((PopSize+1)*(PopSize+1)*sizeof(double));
     
     
     
@@ -41,9 +40,6 @@ void MatOp::PowMatOpenBLAS(int expo, int PopSize, double  *I, double *m){ // wit
     
     //cout<< "Calculating Matrix Powers\n\n";
     
-    
-   
-    
     do
     {
        cout<< n << "\n";
@@ -55,7 +51,7 @@ void MatOp::PowMatOpenBLAS(int expo, int PopSize, double  *I, double *m){ // wit
          
             
             
-            cblas_dgemm(CblasRowMajor, CblasNoTrans,CblasNoTrans,PopSize+1,PopSize+1,PopSize+1,
+            cblas_dgemm (CblasRowMajor, CblasNoTrans,CblasNoTrans,PopSize+1,PopSize+1,PopSize+1,
                             1.0, dest,PopSize+1, src,PopSize+1,
                          0.0, tempMat,PopSize+1); // void cblas_dgemm(OPENBLAS_CONST enum CBLAS_ORDER Order, OPENBLAS_CONST enum CBLAS_TRANSPOSE TransA, OPENBLAS_CONST enum CBLAS_TRANSPOSE TransB, OPENBLAS_CONST blasint M, OPENBLAS_CONST blasint N, OPENBLAS_CONST blasint K, OPENBLAS_CONST double                      alpha, OPENBLAS_CONST double *A, OPENBLAS_CONST blasint lda, OPENBLAS_CONST double *B, OPENBLAS_CONST blasint ldb, OPENBLAS_CONST double beta, double *C, OPENBLAS_CONST blasint ldc);
             
@@ -69,7 +65,7 @@ void MatOp::PowMatOpenBLAS(int expo, int PopSize, double  *I, double *m){ // wit
         //clock_t startTime = clock();
 
         
-        cblas_dgemm(CblasRowMajor, CblasNoTrans,CblasNoTrans,PopSize+1,PopSize+1,PopSize+1,
+        cblas_dgemm (CblasRowMajor, CblasNoTrans,CblasNoTrans,PopSize+1,PopSize+1,PopSize+1,
                      1.0, src,PopSize+1, src,PopSize+1,
                      0.0, tempMat,PopSize+1);
         
@@ -84,9 +80,9 @@ void MatOp::PowMatOpenBLAS(int expo, int PopSize, double  *I, double *m){ // wit
     
     Matcopy(PopSize,m,dest);
     
-    mkl_free(tempMat);
-    mkl_free(dest);
-    mkl_free(src);
+    free(tempMat);
+    free(dest);
+    free(src);
     
 };
 
@@ -102,7 +98,8 @@ void MatOp::Matcopy(int PopSize,double* A,double *B)
 void MatOp::SaveToFile(FILE *stream, double *m,int PopSize,int GridSize)
 {
     
-   
+    
+    
     
     gsl_matrix *propagator = gsl_matrix_alloc ((GridSize+1),(GridSize+1));
     
@@ -110,9 +107,10 @@ void MatOp::SaveToFile(FILE *stream, double *m,int PopSize,int GridSize)
     
     // Continue with original program
     
-	double val = 0.0, norm=0;
+	double val = 0, norm=0;
 	
-	   
+	gsl_vector_view row;
+    
     vector<int> a;
     vector<int> b;
     
@@ -187,15 +185,13 @@ void MatOp::SaveToFile(FILE *stream, double *m,int PopSize,int GridSize)
                                 
                                 val=m[(a[k]*(PopSize+1))+b[l]];
                                 
-                                //cout << (a[k]*(PopSize+1))+b[l]<< " " << val << "\n";
+                                
                                 
                                 disti=((double(a[k])/double(PopSize))-(i*dx))*((double(a[k])/double(PopSize))-(i*dx));
                                 distj=((double(b[l])/double(PopSize))-(j*dx))*((double(b[l])/double(PopSize))-(j*dx));
                                 
                                 if(disti==0 && distj==0){
                                     r=val;
-                                    
-                                    //cout << val <<"\n";
                                     flag=1;
                                 }else{
                                     dist=sqrt(disti+distj);
@@ -208,13 +204,14 @@ void MatOp::SaveToFile(FILE *stream, double *m,int PopSize,int GridSize)
                                 }
                             }
                         }
-                    }
+
+                
                     if(!flag) r=Pn/Pd;
                     flag=0;
                 }
             }
             
- // cout << "Here";
+            // cout << "Here";
             gsl_matrix_set(propagator,i,j,r);
             
             //            if (norm <0.0 ||norm!=norm){
@@ -232,8 +229,7 @@ void MatOp::SaveToFile(FILE *stream, double *m,int PopSize,int GridSize)
             
             a.clear();
             b.clear();
-		
-	}
+		}
         
         
         
@@ -250,9 +246,7 @@ void MatOp::SaveToFile(FILE *stream, double *m,int PopSize,int GridSize)
     
        
     gsl_matrix_fwrite (stream, propagator); // save gsl_matrix
- gsl_matrix_free(propagator);
     
 };
-   
 
 
