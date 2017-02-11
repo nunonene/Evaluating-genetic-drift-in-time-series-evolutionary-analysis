@@ -214,10 +214,7 @@ void MatOp::SaveToFile(FILE *stream, double *m,int PopSize,int GridSize)
                 }
             }
             
-//            cout << "Here\n";
-//            
-//            cout<<r<<"\n";
-            
+  // cout << "Here";
             gsl_matrix_set(propagator,i,j,r);
             
             //            if (norm <0.0 ||norm!=norm){
@@ -229,31 +226,31 @@ void MatOp::SaveToFile(FILE *stream, double *m,int PopSize,int GridSize)
             
             //if(r!=r) cout << i << " " << j <<  " " << r << " "<< Nlocal << "\n";
             
-            //norm += r;
+           // cout << r << "\n";
+            
+            norm += r;
             
             a.clear();
             b.clear();
-		}
 		
-       // row = gsl_matrix_row(propagator,i);
-		//norm *= dx;
+	}
+        
+        
+        
+       
 		
-		//gsl_vector_scale(&row.vector,1.0/norm);
+       row = gsl_matrix_row(propagator,i);
+        
+        
+		norm *= dx;
+		
+		gsl_vector_scale(&row.vector,1.0/norm);
 	}
     
-//    cout<<"Final"<<"\n";
-//    
-//    for (int i=0;i<=200;i++){
-//        for (int j=0;j<=200;j++){
-//            cout << gsl_matrix_get(propagator,i,j) << "\n";
-//        }
-//    
-//    }
-
     
+       
     gsl_matrix_fwrite (stream, propagator); // save gsl_matrix
-    gsl_matrix_free(propagator);
+ gsl_matrix_free(propagator);
     
 };
-
 
