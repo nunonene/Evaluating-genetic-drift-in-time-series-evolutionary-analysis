@@ -1,9 +1,7 @@
 Inference code for "Evaluating-genetic-drift-in-time-series-evolutionary-analysis"
 =================================================================================
 
-Forward-backward/predict-update HMM algorithm for drift model parameter estimation (N or sigma) through likelihood maximization and posterior calculation. Adapted for time-series analysis from Andrej Fischer, Ignacio Vazquez-Garcia, Christopher J.R. Illingworth and Ville Mustonen. High-definition reconstruction of subclonal composition in cancer. Cell Reports (2014), http://dx.doi.org/10.1016/j.celrep.2014.04.055
-
-Additional features for time-resolved data: neutral exact Wright-Fisher (drift parameter N) and Gaussian (drift paramter sigma) propagation with absorbing boundaries drift model on a frequency grid with matrix exponentiation routine.
+Forward-backward/predict-update HMM algorithm for drift model parameter estimation (N or sigma) through likelihood maximization and posterior calculation. 
 
 Executable: DMS
 -----------
