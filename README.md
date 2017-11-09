@@ -1,7 +1,7 @@
 Evaluating-genetic-drift-in-time-series-evolutionary-analysis
 =============================================================
 
-Code used in Nene, N.R., Mustonen,V., Illingworth, C.J.R. Evaluating genetic drift in time-series evolutionary analysis (https://arxiv.org/abs/1611.06152).
+Code used in Nene, N.R., Mustonen,V., Illingworth, C.J.R. Evaluating genetic drift in time-series evolutionary analysis.(http://www.sciencedirect.com/science/article/pii/S0022519317304332).
 
 
 InferenceCode folder
