@@ -1,3 +1,12 @@
+/*
+  OptParamsStruct.h
+ 
+  Nuno Rocha Nene   
+
+*/
+
+
+
 #include "OptParamsStruct.h"
 
 
