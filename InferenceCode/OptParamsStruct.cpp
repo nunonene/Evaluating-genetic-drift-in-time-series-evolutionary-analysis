@@ -1,5 +1,5 @@
 /*
-  OptParamsStruct.h
+  OptParamsStruct.cpp
  
   Nuno Rocha Nene   
 
