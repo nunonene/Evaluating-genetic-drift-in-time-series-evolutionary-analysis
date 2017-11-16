@@ -1,4 +1,4 @@
-// Adapted from original code developed for the following paper: Andrej Fischer, Ignacio Vazquez-Garcia, Christopher J.R. Illingworth and Ville Mustonen. High-definition reconstruction of subclonal composition in cancer. Cell Reports (2014), http://dx.doi.org/10.1016/j.celrep.2014.04.055
+// Adapted from http://dx.doi.org/10.1016/j.celrep.2014.04.055
 
 
 #include <complex>
